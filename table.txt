@@ -1,0 +1,54 @@
+driver
+-id
+-name
+-phone
+-email
+-password
+-gopay
+    -balance
+-NIK
+-vehicleType : 1 motorcycle, 2 car
+-vehicleYear
+-licenseNumber
+-seats -> vType:2
+
+
+user
+-id
+-name
+-phone
+-email
+-password
+-gopay
+    -balance
+-promo
+    -name
+    -count
+    -minTransaction
+    -expire
+
+merchant
+-id
+-name
+-phone
+-email
+-password
+-gopay
+    -balance
+-address
+-menu
+    -name
+    -price
+
+order
+-id
+-type : 1 goride, 2 gocar, 3 gofood
+-userID
+-driverID
+-merchantID -> type:3
+-pickUpPoint
+-destination
+-orderedMenu -> type:3
+-passengers -> type:2
+-promoID
+-subtotal
