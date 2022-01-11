@@ -82,4 +82,51 @@
     $("#formPromo").removeClass("d-none");
   });
 
+  $.urlParam = function (name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results == null) {
+      return null;
+    }
+    return decodeURI(results[1]) || 0;
+  }
+
+  $.urlParam('coll')
+
+  if ($.urlParam('coll') == "driver") {
+    $("#formUser").remove();
+    $("#formMerchant").remove();
+    $("#formPromo").remove();
+  }
+  if ($.urlParam('coll') == "user") {
+    $("#formDriver").remove();
+    $("#formMerchant").remove();
+    $("#formPromo").remove();
+  }
+  if ($.urlParam('coll') == "merchant") {
+    $("#formUser").remove();
+    $("#formDriver").remove();
+    $("#formPromo").remove();
+  }
+  if ($.urlParam('coll') == "promo") {
+    $("#formUser").remove();
+    $("#formMerchant").remove();
+    $("#formDriver").remove();
+  }
+
 })(jQuery);
+
+var getUrlParameter = function getUrlParameter(sParam) {
+  var sPageURL = window.location.search.substring(1),
+    sURLVariables = sPageURL.split('&'),
+    sParameterName,
+    i;
+
+  for (i = 0; i < sURLVariables.length; i++) {
+    sParameterName = sURLVariables[i].split('=');
+
+    if (sParameterName[0] === sParam) {
+      return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+    }
+  }
+  return false;
+};
