@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Insert Data</title>
+</head>
+
+<body>
+    <!-- <p>Hello, {{ username }}</p>
+    <form action="{{ url_for('logout') }}" method="post">
+        <button class = "btn btn-danger" type="submit">Log Out</button>
+    </form> -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Hello, {{ username }}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">All Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Insert</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Update</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Delete</a>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{{ url_for('logout') }}" method="post">
+                            <button class="btn btn-danger" type="submit">Log Out</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Selector -->
+    <input type="text" id="selector" class="d-none" value="0">
+
+    <div class="container">
+        <div class="row mx-5 mt-5">
+            <div class="col">
+                <button class="btn btn-primary" id="btnD">Driver</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-primary" id="btnU">User</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-primary" id="btnM">Merchant</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-primary" id="btnP">Promo</button>
+            </div>
+        </div>
+        <!-- Insert Driver -->
+        <div class="row mx-5 mt-2" id="formDriver">
+            <form action = "{{ url_for('insertDriver') }}" method="post">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone" aria-describedby="phone" name="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" aria-describedby="password" name="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="balance" class="form-label">Gopay Balance</label>
+                        <input type="number" class="form-control" id="balance" aria-describedby="balance" name="balance">
+                    </div>
+                    <div class="mb-3">
+                        <label for="NIK" class="form-label">NIK</label>
+                        <input type="text" class="form-control" id="NIK" aria-describedby="NIK" name="NIK">
+                    </div>
+                    <div class="mb-3">
+                        <label for="vehicleType" class="form-label">Vehicle Type</label>
+                        <select class="form-select" name="vehicleType">
+                            <option value="1">Motorcycle</option>
+                            <option value="2">Car</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="vehicleYear" class="form-label">Vehicle Year</label>
+                        <input type="number" class="form-control" id="vehicleYear" aria-describedby="vehicleYear" name="vehicleYear">
+                    </div>
+                    <div class="mb-3">
+                        <label for="licenseNumber" class="form-label">License Number</label>
+                        <input type="text" class="form-control" id="licenseNumber" aria-describedby="licenseNumber" name="licenseNumber">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Insert User -->
+        <div class="row mx-5 mt-2 d-none" id="formUser">
+            <form action = "{{ url_for('insertUser') }}" method="post">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone" aria-describedby="phone" name="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" aria-describedby="password" name="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="balance" class="form-label">Gopay Balance</label>
+                        <input type="number" class="form-control" id="balance" aria-describedby="balance" name="balance">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Insert Merchant -->
+        <div class="row mx-5 mt-2 d-none" id="formMerchant">
+            <form action = "{{ url_for('insertMerchant') }}" method="post">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone" aria-describedby="phone" name="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" aria-describedby="password" name="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="balance" class="form-label">Gopay Balance</label>
+                        <input type="number" class="form-control" id="balance" aria-describedby="balance" name="balance">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" aria-describedby="address" name="address">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Insert Promo -->
+        <div class="row mx-5 mt-2 d-none" id="formPromo">
+            <form action = "{{ url_for('insertPromo') }}" method="post">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="multiplier" class="form-label">Multiplier</label>
+                        <input type="number" class="form-control" id="multiplier" aria-describedby="multiplier" name="multiplier">
+                    </div>
+                    <div class="mb-3">
+                        <label for="minTransaction" class="form-label">Min Transaction</label>
+                        <input type="number" class="form-control" id="minTransaction" aria-describedby="minTransaction" name="minTransaction">
+                    </div>
+                    <div class="mb-3">
+                        <label for="expire" class="form-label">Expire Date</label>
+                        <input type="date" class="form-control" id="expire" aria-describedby="expire" name="expire">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <br>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+</body>
+
+</html>
